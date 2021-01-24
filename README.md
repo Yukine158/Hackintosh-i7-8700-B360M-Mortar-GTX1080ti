@@ -1,68 +1,115 @@
 # Hackintosh-i7-8700-B360M-Mortar-GTX1080ti
+
 记录一个初心者的黑苹果安装历程
 
 1. 我的配置
+
 硬件 Hardware	型号 
+
 主板 Motherboard	微星 MSI B360M Mortar (BIOS 7B23v16)
+
 CPU	英特尔 Intel i7-8700
+
 内存 RAM	威刚 Adata DDR4 2666MHz 8G*2
+
 显卡Graphic Card	技嘉Gigabyte Aorus GTX1080Ti 11g
+
 硬盘1 Hard disk1	西部数据 Western Digital SN550 M.2 Nvme 512G
+
 硬盘2 Hard disk2	昱科 HGST HTS721010A9E630 1T
+
 硬盘3 Hard disk3	东芝 TOSHIBA Q200EX M.2 SATA 256G
+
 板载网卡 Onboard LAN	英特尔 Intel I219-V
+
 显示器 Monitor	宏碁 Acer KG241YU
+
 拓展坞 USB Hub	贝尔金 Belkin Type-C Hub F4U092btSGY
+
 键盘 Keyboard	斐尔可FILCO Minila with wire
+
 鼠标 Mouse	雷蛇 Razer Lancehead
 
 2. 功能实现 
+
 主板及CPU 
+
 板载网卡
+
 显卡
+
 iTunes/ App Store/ iCloud
 
+
 3. 待实现 
+
 ×板载声卡瑞煜Realtek ALC892
+
 ×iMessage/ Facetime
 
 4. EFI说明 EFI Description
+
 4.1 Config.plist
 
 DSDT FIX 适用BIOS版本高于7B23v16
+
 HDAS to HDEF 用于模拟Nvram
 
 Product Name选择iMac18,2
+
 Board Serial Number, S/N, SmUUID待使用者自行生成
 
 4.2 使用Clover时，勾选-verbose（用于确定问题）Set Nvidia to VESA
 
 5. 显卡驱动 How to install Graphic Card Driver
+
 Mac OS High Sierra 10.13.6 (17G66)无原生Nvidia Webdriver。
+
 1)下载WebDriver-387.10.10.10.40.133并打开
+
 2)记录错误页面的BuildNumber (17G10021等)
+
 3)打开终端
+
 4)输入sudo nano -w /System/Library/CoreServices/SystemVersion.plist
+
 5)修改本机BuildNumber为Webdriver BuildNumber
+
 6)保存plist
+
 7)安装Webdriver
+
 8)修改回原BuildNumber
+
 9)打开EFI的config.plist
+
 10)引导参数栏添加nvda_drv=1
+
 11)重新启动
 
 6. 为确保iTunes及App Store正常使用
+
 需更新iTunes版本至12.8.2
 
+
 Annex
+
 1.Windows系统下事前准备
+
 2.Mac OS High Sierra 10.13.6 (17G66)系统安装文件 （检查md5）
+
 3.Diskgenius （用于windows下操作EFI分区）
+
 4.ProperTree （修改plist）
+
 5.Etcher （制作启动u盘）
+
 6.EFI和BOOT文件夹 （替换EFI分区同名文件夹）
 
+
+
 a.进入BIOS设置 
+
 Check https://github.com/GeQ1an/MSI-B360M-MORTAR-HACKINTOSH-OPENCORE-EFI
 
 SETTINGS\高级\PCI子系统设置\Above 4G memory/Crypto Currency mining [允许]
